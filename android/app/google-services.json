@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "881592764266",
+    "firebase_url": "https://justcrew-firebase.firebaseio.com",
+    "project_id": "justcrew-firebase",
+    "storage_bucket": "justcrew-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881592764266:android:cc04287c97989feb344713",
+        "android_client_info": {
+          "package_name": "com.justcrew.justcrew_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881592764266-ngparvui933mvndfr91879glvagojirl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.justcrew.justcrew_flutter",
+            "certificate_hash": "4cda8f96efb6f16f4a501c6aab34b772e2d20803"
+          }
+        },
+        {
+          "client_id": "881592764266-tl5f44c1b6a0fphvls12r9npvi0e6943.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6NBcUZbywDPLXbdtpw-ZYvnTPIyJRErs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881592764266-tl5f44c1b6a0fphvls12r9npvi0e6943.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "881592764266-4vbbojseig3g0j6qbp9t0l6sd66gecug.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.justcrew.justcrewFlutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

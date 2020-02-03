@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>881592764266-4vbbojseig3g0j6qbp9t0l6sd66gecug.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.881592764266-4vbbojseig3g0j6qbp9t0l6sd66gecug</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA54XcBPiPvRulraAi4p3dV1fuH8m0GSfU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>881592764266</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.justcrew.justcrewFlutter</string>
+	<key>PROJECT_ID</key>
+	<string>justcrew-firebase</string>
+	<key>STORAGE_BUCKET</key>
+	<string>justcrew-firebase.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:881592764266:ios:b386b2ad0563343c344713</string>
+	<key>DATABASE_URL</key>
+	<string>https://justcrew-firebase.firebaseio.com</string>
+</dict>
+</plist>
