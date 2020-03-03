@@ -25,14 +25,16 @@ dependencies:
   cupertino_icons: ^0.1.2
   google_sign_in: ^4.0.11
   http: ^0.12.0+2
-#  Firebase의 인증기능을 제공하는 플러그인
+  #  Firebase의 인증기능을 제공하는 플러그인
   firebase_auth: ^0.14.0+5
-#  여러 페이지에서 인증 정보를 공유하기 위해 사용할 Provider 기능을 제공하는 플러그닝
+  #  여러 페이지에서 인증 정보를 공유하기 위해 사용할 Provider 기능을 제공하는 플러그닝
   provider: ^3.1.0+1
-#  사용자의 메일주소와 비밀번호를 저장하기 위해 사용할 플러그인
+  #  사용자의 메일주소와 비밀번호를 저장하기 위해 사용할 플러그인
   shared_preferences: ^0.5.3+4
-#  로그를 출력하기 위한 플러그인
+  #  로그를 출력하기 위한 플러그인
   logger: ^0.7.0+2
+  query_params: '^0.6.1'
+  cached_network_image: ^2.0.0
 
 
 dev_dependencies:
@@ -81,3 +83,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
