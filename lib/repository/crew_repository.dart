@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:justcrew_flutter/models/session.dart';
 import 'package:query_params/query_params.dart';
 import 'dart:convert';
 import '../models/crew.dart';
@@ -7,7 +8,7 @@ import 'package:logger/logger.dart';
 
 final String baseUrl = 'https://jmzcfz5w7l.execute-api.ap-northeast-2.amazonaws.com/dev';
 
-Future<Stream<Crew>> getCrews(_current_page, _per_page, _searchKeyword) async {
+Future<Stream<Crew>> getCrews(_current_page, _perPage, _searchKeyword) async {
 //  final String url = 'https://api.punkapi.com/v2/beers';
 ////  final String url = 'api.punkapi.com';
 //
@@ -19,7 +20,7 @@ Future<Stream<Crew>> getCrews(_current_page, _per_page, _searchKeyword) async {
   URLQueryParams queryParams = new URLQueryParams();
 
   queryParams.append('page', _current_page);
-  queryParams.append('per_page', _per_page);
+  queryParams.append('perPage', _perPage);
 
 //  var queryParameters = {
 //    'page' : _current_page,
@@ -44,4 +45,48 @@ Future<Stream<Crew>> getCrews(_current_page, _per_page, _searchKeyword) async {
       .transform(json.decoder)
       .expand((data) => (data as List))
       .map((data) => Crew.fromJSON(data));
+}
+
+Future<Stream<Session>> getCrewSessions(_crewId, _durationType, _status, _type, _allowableType, _perPage, _cursorType, _cursorValue) async {
+//  final String url = 'https://api.punkapi.com/v2/beers';
+////  final String url = 'api.punkapi.com';
+//
+  String callUrl = baseUrl + '/crews/${_crewId}/sessions';
+
+  URLQueryParams queryParams = new URLQueryParams();
+
+  queryParams.append('perPage', _perPage);
+
+  if(_cursorValue != null){
+    queryParams.append('cursorType', _cursorType);
+    queryParams.append('cursorValue', _cursorValue);
+  }
+
+  queryParams.append('crewId', _crewId);
+  queryParams.append('durationType', _durationType);
+  queryParams.append('status', _status);
+  queryParams.append('type', _type);
+  queryParams.append('allowableType', _allowableType);
+
+//  var queryParameters = {
+//    'page' : _current_page,
+//    'per_page' : _per_page
+//  };
+
+//  var uri = Uri.https(url, '/v2/beers', queryParameters);
+
+  var aa = callUrl + '?'+ queryParams.toString();
+
+  print('aa : ${aa}');
+
+  final client = new http.Client();
+  final streamedRest = await client.send(
+      http.Request('get', Uri.parse(aa))
+  );
+
+  return streamedRest.stream
+      .transform(utf8.decoder)
+      .transform(json.decoder)
+      .expand((data) => (data as List))
+      .map((data) => Session.fromJSON(data));
 }

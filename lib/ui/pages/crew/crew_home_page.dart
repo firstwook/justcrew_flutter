@@ -18,7 +18,7 @@ class _CrewHomePageState extends State<CrewHomePage> {
 
   String _searchKeyword = '';
   int _current_page = 1;
-  static const int _per_page = 10;
+  static const int _perPage = 10;
 
   Logger logger = Logger();
 
@@ -31,7 +31,7 @@ class _CrewHomePageState extends State<CrewHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    listenForCrews(_current_page, _per_page, _searchKeyword);
+    listenForCrews(_current_page, _perPage, _searchKeyword);
 
     _scrollController.addListener(() {
       double maxScroll = _scrollController.position.maxScrollExtent;
@@ -42,7 +42,7 @@ class _CrewHomePageState extends State<CrewHomePage> {
         _current_page++;
 
         setState(() {
-          listenForCrews(_current_page, _per_page, _searchKeyword);
+          listenForCrews(_current_page, _perPage, _searchKeyword);
         });
       }
     });
@@ -101,9 +101,9 @@ class _CrewHomePageState extends State<CrewHomePage> {
     );
   }
 
-  void listenForCrews(_current_page, _per_page, _searchKeyword) async {
+  void listenForCrews(_current_page, _perPage, _searchKeyword) async {
     logger.d(
-        'listenForCrews : ${_current_page}, ${_per_page}, ${_searchKeyword}');
+        'listenForCrews : ${_current_page}, ${_perPage}, ${_searchKeyword}');
 
     if (_moreProductsAvailable == false) {
       print("No more products!!!");
@@ -115,7 +115,7 @@ class _CrewHomePageState extends State<CrewHomePage> {
     }
 
     final Stream<Crew> stream =
-        await getCrews(_current_page, _per_page, _searchKeyword);
+        await getCrews(_current_page, _perPage, _searchKeyword);
 
     print('stream : ${stream}');
 
@@ -131,14 +131,14 @@ class _CrewHomePageState extends State<CrewHomePage> {
       print('_temCrews.length!! : ${_temCrews.length}');
       print('_crews.length!! : ${_crews.length}');
 
-      print(' _per_page!! : ${_per_page}');
+      print(' _perPage!! : ${_perPage}');
       print('_moreProductsAvailable : ${_moreProductsAvailable}');
 
-      if (_temCrews.length < _per_page) {
+      if (_temCrews.length < _perPage) {
         setState(() {
           print('_crews.length : ${_temCrews.length}');
 
-          print('_current_page * _per_page : ${_per_page}');
+          print('_current_page * _perPage : ${_perPage}');
 
           _moreProductsAvailable = false;
         });
@@ -163,7 +163,7 @@ class _CrewHomePageState extends State<CrewHomePage> {
     _crews.clear();
     logger.d('_handleSubmitted : ${text}');
 
-    listenForCrews(_current_page, _per_page, _searchKeyword);
+    listenForCrews(_current_page, _perPage, _searchKeyword);
 
 //    _textEditingController.clear();
   }

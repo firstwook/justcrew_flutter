@@ -1,48 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:justcrew_flutter/models/session.dart';
 import 'package:justcrew_flutter/repository/crew_repository.dart';
 import 'package:justcrew_flutter/widgets/crew_tile.dart';
+import 'package:justcrew_flutter/widgets/session_tile.dart';
 import 'package:logger/logger.dart';
 import '../../../models/crew.dart';
 
 class SessionListPage extends StatefulWidget {
+
+  final int crewId;
+  final String durationType;
+  final String status;
+  final int type;
+  final int allowableType;
+
+  const SessionListPage({Key key, this.crewId, this.durationType, this.status, this.type, this.allowableType}) : super(key: key);
+
   @override
   _SessionListPageState createState() => _SessionListPageState();
 }
 
 class _SessionListPageState extends State<SessionListPage> {
+
   ScrollController _scrollController = ScrollController();
 
   bool _loadingProducts = true;
   bool _gettingMoreProducts = false;
   bool _moreProductsAvailable = true;
 
-  String _searchKeyword = '';
-  int _current_page = 1;
-  static const int _per_page = 10;
+  Session _lastSession;
+
+  static const int _perPage = 20;
 
   Logger logger = Logger();
 
-  List<Crew> _crews = <Crew>[];
-
-  final TextEditingController _textEditingController =
-  new TextEditingController();
+//  List<Crew> _crews = <Crew>[];
+  List<Session> _sessions = <Session>[];
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    listenForCrews(_current_page, _per_page, _searchKeyword);
+
+    print("crewId ; ${widget.crewId} / isUpcomming : ${widget.durationType}");
+
+    listenForSessions();
 
     _scrollController.addListener(() {
-      double maxScroll = _scrollController.position.maxScrollExtent;
-      double currentScroll = _scrollController.position.pixels;
-      double delta = MediaQuery.of(context).size.height * 0.25;
-
-      if (maxScroll - currentScroll <= delta) {
-        _current_page++;
-
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
         setState(() {
-          listenForCrews(_current_page, _per_page, _searchKeyword);
+          listenForSessions();
         });
       }
     });
@@ -50,6 +58,9 @@ class _SessionListPageState extends State<SessionListPage> {
 
   @override
   Widget build(BuildContext context) {
+
+//    print("crewId ; ${widget.crewId} / isUpcomming : ${widget.isUpcoming}");
+
     return Scaffold(
       body: _loadingProducts == true
           ? Container(
@@ -59,41 +70,16 @@ class _SessionListPageState extends State<SessionListPage> {
       )
           : Column(
         children: <Widget>[
-//          Container(
-//            margin: const EdgeInsets.symmetric(horizontal: 4.0),
-//            child: Row(
-//              children: <Widget>[
-//                Flexible(
-//                  child: TextField(
-//                    controller: _textEditingController,
-//                    onSubmitted: _handleSubmitted,
-//                    decoration: InputDecoration(
-//                      contentPadding: EdgeInsets.all(15.0),
-//                      hintText: '크루명을 검색해 보세요.',
-//                    ),
-//                  ),
-//                ),
-//                Container(
-//                  margin: const EdgeInsets.symmetric(horizontal: 4.0),
-//                  child: IconButton(
-//                    icon: Icon(Icons.search),
-//                    onPressed: () =>
-//                        _handleSubmitted(_textEditingController.text),
-//                  ),
-//                )
-//              ],
-//            ),
-//          ),
           Expanded(
-            child: _crews.length == 0
+            child: _sessions.length == 0
                 ? Center(
               child: Text('No products to show'),
             )
                 : ListView.builder(
               controller: _scrollController,
-              itemCount: _crews.length,
+              itemCount: _sessions.length,
               itemBuilder: (context, index) =>
-                  CrewTile(_crews[index]),
+                  SessionTile(_sessions[index]),
             ),
           )
         ],
@@ -101,70 +87,76 @@ class _SessionListPageState extends State<SessionListPage> {
     );
   }
 
-  void listenForCrews(_current_page, _per_page, _searchKeyword) async {
-    logger.d(
-        'listenForCrews : ${_current_page}, ${_per_page}, ${_searchKeyword}');
+//  void listenForSessions(_perPage, _crewId, _durationType, _status, _type, _allowableType) async {
+  void listenForSessions() async {
+    if(_lastSession == null){
 
-    if (_moreProductsAvailable == false) {
-      print("No more products!!!");
-      return;
-    }
+      print("First Session List CALL");
 
-    if (_gettingMoreProducts == true) {
-      return;
-    }
+      final Stream<Session> stream =
+      await getCrewSessions(widget.crewId, widget.durationType, widget.status, widget.type, widget.allowableType, _perPage, null, null);
 
-    final Stream<Crew> stream =
-    await getCrews(_current_page, _per_page, _searchKeyword);
+      print('stream : ${stream}');
+      List<Session> _tmpSessions = <Session>[];
 
-    print('stream : ${stream}');
+      stream.listen((Session session) {
+        print("DataReceived: ${session}");
+        _tmpSessions.add(session);
+      }, onDone: () {
 
-    List<Crew> _temCrews = <Crew>[];
+        _sessions.addAll(_tmpSessions);
+        _lastSession = _tmpSessions[_tmpSessions.length-1];
 
-    stream.listen((Crew crew) {
-      print("DataReceived: ${crew}");
-      _temCrews.add(crew);
-    }, onDone: () {
-      _crews.addAll(_temCrews);
+        print('_tmpSessions.length : ${_tmpSessions.length} / _lastSession : ${_lastSession.id} / ${_lastSession.name} / ${_lastSession.date}');
 
-      print('_temCrews : ${_temCrews}');
-      print('_temCrews.length!! : ${_temCrews.length}');
-      print('_crews.length!! : ${_crews.length}');
-
-      print(' _per_page!! : ${_per_page}');
-      print('_moreProductsAvailable : ${_moreProductsAvailable}');
-
-      if (_temCrews.length < _per_page) {
-        setState(() {
-          print('_crews.length : ${_temCrews.length}');
-
-          print('_current_page * _per_page : ${_per_page}');
-
+        if (_tmpSessions.length < _perPage) {
+          print('First _tmpSessions.length : ${_tmpSessions.length}');
           _moreProductsAvailable = false;
+        }
+        setState(() {
+          _loadingProducts = false;
         });
+      }, onError: (error) {
+        print("error : ${error}");
+      });
+
+    }else{
+
+      print("More Session List CALL");
+
+      if (_moreProductsAvailable == false) {
+        print("No more products!!!");
+        return;
       }
 
-      setState(() {});
-    }, onError: (error) {
-      print("error : ${error}");
-    });
+      if (_gettingMoreProducts == true) {
+        return;
+      }
 
-    setState(() {
-      _loadingProducts = false;
-    });
+      final Stream<Session> stream =
+      await getCrewSessions(widget.crewId, widget.durationType, widget.status, widget.type, widget.allowableType, _perPage, 'date', _lastSession.date);
 
-    _gettingMoreProducts = false;
-  }
+      List<Session> _tmpSessions = <Session>[];
 
-  void _handleSubmitted(String text) {
-    _searchKeyword = text;
+      stream.listen((Session session) {
+        print("DataReceived: ${session}");
+        _tmpSessions.add(session);
+      }, onDone: () {
+        _sessions.addAll(_tmpSessions);
+        _lastSession = _tmpSessions[_tmpSessions.length-1];
 
-    _current_page = 1;
-    _crews.clear();
-    logger.d('_handleSubmitted : ${text}');
+        if (_tmpSessions.length < _perPage) {
+          _moreProductsAvailable = false;
+        }
+        setState(() {});
 
-    listenForCrews(_current_page, _per_page, _searchKeyword);
+      }, onError: (error) {
+        print("error : ${error}");
+      });
 
-//    _textEditingController.clear();
+
+      _gettingMoreProducts = false;
+
+    }
   }
 }

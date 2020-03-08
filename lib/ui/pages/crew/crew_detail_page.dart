@@ -213,7 +213,7 @@ class CrewSummary extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              CrewSessionPage(),
+                              CrewSessionPage(crew),
                         ),
                       );},
                       child: Column(
