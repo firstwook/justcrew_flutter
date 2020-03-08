@@ -32,13 +32,13 @@ class _CrewHomePageState extends State<CrewHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    listenForCrews(_searchKeyword);
+    listenForCrews();
 
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
         setState(() {
-          listenForCrews(_searchKeyword);
+          listenForCrews();
         });
       }
     });
@@ -134,7 +134,7 @@ class _CrewHomePageState extends State<CrewHomePage> {
     );
   }
 
-  void listenForCrews(_searchKeyword) async {
+  void listenForCrews() async {
 
     print('_searchKeyword : ${_searchKeyword}');
 
@@ -148,7 +148,7 @@ class _CrewHomePageState extends State<CrewHomePage> {
       List<Crew> _tmpCrews = <Crew>[];
 
       stream.listen((Crew crew) {
-        print("DataReceived: ${crew}");
+        print("First DataReceived: ${crew.id}  / ${crew.name}");
         _tmpCrews.add(crew);
       }, onDone: () {
 
@@ -205,13 +205,6 @@ class _CrewHomePageState extends State<CrewHomePage> {
 
         print('_lastCrew.length : _lastCrew : ${_lastCrew.id} / ${_lastCrew.name} ');
 
-        print('_temCrews : ${_tmpCrews}');
-        print('_temCrews.length!! : ${_tmpCrews.length}');
-        print('_crews.length!! : ${_crews.length}');
-
-        print(' _perPage!! : ${_perPage}');
-        print('_moreCrewsAvailable : ${_moreCrewsAvailable}');
-
         if (_tmpCrews.length < _perPage) {
           _moreCrewsAvailable = false;
         }
@@ -236,7 +229,7 @@ class _CrewHomePageState extends State<CrewHomePage> {
 
     logger.d('_handleSubmitted : ${text}');
 
-    listenForCrews(_searchKeyword);
+    listenForCrews();
 
 //    setState(() {
 //
@@ -256,7 +249,7 @@ class _CrewHomePageState extends State<CrewHomePage> {
     _lastCrew = null;
     _crews.clear();
 
-    listenForCrews('');
+    listenForCrews();
 
   }
 }

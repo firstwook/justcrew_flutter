@@ -2,38 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d77bd04-f723-446e-81c3-f68ca19374d8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/a0e6776c9f6a509a78e02d8967004ca5/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/a0e6776c9f6a509a78e02d8967004ca5/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/a0e6776c9f6a509a78e02d8967004ca5/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/a0e6776c9f6a509a78e02d8967004ca5/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f34693d6766bce65d87f461da2690619/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f34693d6766bce65d87f461da2690619/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f34693d6766bce65d87f461da2690619/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f34693d6766bce65d87f461da2690619/app.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/App" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/App" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/shared_preferences.framework/shared_preferences" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/shared_preferences.framework/shared_preferences" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Runner" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Runner" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/_CodeSignature/CodeResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_auth/firebase_auth.framework/_CodeSignature/CodeDirectory" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_auth/firebase_auth.framework/_CodeSignature/CodeDirectory" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_auth/firebase_auth.framework/_CodeSignature/CodeRequirements-1" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_auth/firebase_auth.framework/_CodeSignature/CodeRequirements-1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_auth/firebase_auth.framework/firebase_auth" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_auth/firebase_auth.framework/firebase_auth" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_core/firebase_core.framework/_CodeSignature/CodeDirectory" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_core/firebase_core.framework/_CodeSignature/CodeDirectory" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_core/firebase_core.framework/_CodeSignature/CodeRequirements-1" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_core/firebase_core.framework/_CodeSignature/CodeRequirements-1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_core/firebase_core.framework/firebase_core" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_core/firebase_core.framework/firebase_core" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/google_sign_in/google_sign_in.framework/_CodeSignature/CodeDirectory" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/google_sign_in/google_sign_in.framework/_CodeSignature/CodeDirectory" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/google_sign_in/google_sign_in.framework/_CodeSignature/CodeRequirements-1" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/google_sign_in/google_sign_in.framework/_CodeSignature/CodeRequirements-1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/google_sign_in/google_sign_in.framework/google_sign_in" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/google_sign_in/google_sign_in.framework/google_sign_in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/shared_preferences/shared_preferences.framework/shared_preferences" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/shared_preferences/shared_preferences.framework/shared_preferences" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/App" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/App" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/shared_preferences.framework/shared_preferences" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/shared_preferences.framework/shared_preferences" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Runner" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Runner" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/_CodeSignature/CodeResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/App.framework/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/App.framework/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/repository/crew_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repository/crew_repository.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/pages/crew/crew_home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/crew/crew_home_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/pages/crew/session_list_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/crew/session_list_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +103,7 @@
       <workItem from="1582247495313" duration="25531000" />
       <workItem from="1583283258382" duration="27534000" />
       <workItem from="1583646871638" duration="3899000" />
-      <workItem from="1583656037817" duration="9158000" />
+      <workItem from="1583656037817" duration="13032000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1580742715025</created>
@@ -156,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583648488768</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="20200308&#10;- session 목록조회 화면 구현">
+      <created>1583665779803</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1583665779803</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,19 +165,19 @@
     </state>
     <state x="2344" y="298" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/28.23.1412.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1581638842120" />
     <state x="2231" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/29.23.1411.877/1440.23.1680.1027@1440.23.1680.1027" timestamp="1580652138457" />
-    <state x="1891" y="0" width="878" height="765" key="CommitChangelistDialog2" timestamp="1583648469034">
+    <state x="1891" y="0" width="1011" height="929" key="CommitChangelistDialog2" timestamp="1583665769012">
       <screen x="1440" y="0" width="1680" height="1050" />
     </state>
-    <state x="1891" y="0" key="CommitChangelistDialog2/0.0.1440.900/1440.0.1680.1050@1440.0.1680.1050" timestamp="1583648469034" />
+    <state x="1891" y="0" width="1011" height="929" key="CommitChangelistDialog2/0.0.1440.900/1440.0.1680.1050@1440.0.1680.1050" timestamp="1583665769012" />
     <state x="1891" y="123" width="944" height="797" key="CommitChangelistDialog2/0.23.1440.877/1440.0.1680.1050@1440.0.1680.1050" timestamp="1580742714699" />
     <state x="1891" y="143" key="CommitChangelistDialog2/27.23.1413.877/1440.23.1680.1027@1440.23.1680.1027" timestamp="1581341476436" />
     <state x="1955" y="147" key="CommitChangelistDialog2/28.23.1412.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1581751467219" />
     <state x="407" y="23" width="878" height="765" key="CommitChangelistDialog2/28.23.1412.877@28.23.1412.877" timestamp="1583240699138" />
-    <state x="1964" y="102" width="1055" height="846" key="DiffContextDialog" timestamp="1583665310050">
+    <state x="1791" y="102" width="1228" height="846" key="DiffContextDialog" timestamp="1583669416670">
       <screen x="1440" y="0" width="1680" height="1050" />
     </state>
-    <state x="1964" y="102" width="1055" height="846" key="DiffContextDialog/0.0.1440.900/1440.0.1680.1050@1440.0.1680.1050" timestamp="1583665310050" />
-    <state x="1693" y="102" width="1326" height="846" key="DiffContextDialog/27.23.1413.877/1440.0.1680.1050@1440.0.1680.1050" timestamp="1583664097913" />
+    <state x="1791" y="102" width="1228" height="846" key="DiffContextDialog/0.0.1440.900/1440.0.1680.1050@1440.0.1680.1050" timestamp="1583669321700" />
+    <state x="1791" y="102" width="1228" height="846" key="DiffContextDialog/27.23.1413.877/1440.0.1680.1050@1440.0.1680.1050" timestamp="1583669416670" />
     <state x="1964" y="123" width="1055" height="827" key="DiffContextDialog/27.23.1413.877/1440.23.1680.1027@1440.23.1680.1027" timestamp="1582552514523" />
     <state x="1964" y="123" width="1055" height="827" key="DiffContextDialog/28.23.1412.877/1440.23.1680.1027@1440.23.1680.1027" timestamp="1580644001731" />
     <state x="2096" y="431" key="Github.CreateGistDialog" timestamp="1583596317092">
@@ -319,10 +296,10 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="2072" y="278" width="1141" height="652" key="new project wizard/29.23.1411.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1580688375982" />
-    <state x="2202" y="227" width="672" height="694" key="search.everywhere.popup" timestamp="1583665184729">
+    <state x="2202" y="227" width="672" height="694" key="search.everywhere.popup" timestamp="1583666193479">
       <screen x="1440" y="0" width="1680" height="1050" />
     </state>
-    <state x="2202" y="227" width="672" height="694" key="search.everywhere.popup/0.0.1440.900/1440.0.1680.1050@1440.0.1680.1050" timestamp="1583665184729" />
+    <state x="2202" y="227" width="672" height="694" key="search.everywhere.popup/0.0.1440.900/1440.0.1680.1050@1440.0.1680.1050" timestamp="1583666193479" />
     <state x="2311" y="251" width="766" height="696" key="search.everywhere.popup/24.23.1416.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1580171695392" />
     <state x="2202" y="245" width="670" height="676" key="search.everywhere.popup/25.23.1415.877/1440.23.1680.1027@1440.23.1680.1027" timestamp="1580048825990" />
     <state x="2202" y="245" width="672" height="678" key="search.everywhere.popup/26.23.1414.877/1440.23.1680.1027@1440.23.1680.1027" timestamp="1583574255639" />
