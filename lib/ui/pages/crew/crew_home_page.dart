@@ -12,12 +12,13 @@ class CrewHomePage extends StatefulWidget {
 class _CrewHomePageState extends State<CrewHomePage> {
   ScrollController _scrollController = ScrollController();
 
-  bool _loadingProducts = true;
-  bool _gettingMoreProducts = false;
-  bool _moreProductsAvailable = true;
+  bool _loadingCrews = true;
+  bool _gettingMoreCrews = false;
+  bool _moreCrewsAvailable = true;
+
+  Crew _lastCrew;
 
   String _searchKeyword = '';
-  int _current_page = 1;
   static const int _perPage = 10;
 
   Logger logger = Logger();
@@ -31,27 +32,36 @@ class _CrewHomePageState extends State<CrewHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    listenForCrews(_current_page, _perPage, _searchKeyword);
+    listenForCrews(_searchKeyword);
 
     _scrollController.addListener(() {
-      double maxScroll = _scrollController.position.maxScrollExtent;
-      double currentScroll = _scrollController.position.pixels;
-      double delta = MediaQuery.of(context).size.height * 0.25;
-
-      if (maxScroll - currentScroll <= delta) {
-        _current_page++;
-
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
         setState(() {
-          listenForCrews(_current_page, _perPage, _searchKeyword);
+          listenForCrews(_searchKeyword);
         });
       }
     });
+
+//    _scrollController.addListener(() {
+//      double maxScroll = _scrollController.position.maxScrollExtent;
+//      double currentScroll = _scrollController.position.pixels;
+//      double delta = MediaQuery.of(context).size.height * 0.25;
+//
+//      if (maxScroll - currentScroll <= delta) {
+//        _current_page++;
+//
+//        setState(() {
+//          listenForCrews(_current_page, _perPage, _searchKeyword);
+//        });
+//      }
+//    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _loadingProducts == true
+      body: _loadingCrews == true
           ? Container(
               child: Center(
                 child: Text("Loading...."),
@@ -61,6 +71,25 @@ class _CrewHomePageState extends State<CrewHomePage> {
               children: <Widget>[
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 4.0),
+//                  child: Row(children: <Widget>[
+//                    new Icon(Icons.search, color: _textEditingController.text.length>0?Colors.lightBlueAccent:Colors.grey,),
+//                    new SizedBox(width: 10.0,),
+//                    new Expanded(child: new Stack(
+//                        alignment: const Alignment(1.0, 1.0),
+//                        children: <Widget>[
+//                          new TextField(
+//                            decoration: InputDecoration(hintText: '크루명을 검색해 보세요.'),
+//                            onChanged: (text){
+//                                _handleSubmitted(text);
+//                            },
+//                            controller: _textEditingController,),
+//                          _textEditingController.text.length>0?new IconButton(icon: new Icon(Icons.clear),
+//                              onPressed: () {
+//                            _textfieldClear();
+//                          }):new Container(height: 0.0,)
+//                        ]
+//                    ),),
+//                  ],),
                   child: Row(
                     children: <Widget>[
                       Flexible(
@@ -68,9 +97,13 @@ class _CrewHomePageState extends State<CrewHomePage> {
                           controller: _textEditingController,
                           onSubmitted: _handleSubmitted,
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(15.0),
-                            hintText: '크루명을 검색해 보세요.',
-                          ),
+                              contentPadding: EdgeInsets.all(15.0),
+                              hintText: '크루명을 검색해 보세요.',
+                              suffixIcon: IconButton(
+                                  icon: Icon(Icons.clear),
+                                  onPressed: () {
+                                    _textfieldClear();
+                                  })),
                         ),
                       ),
                       Container(
@@ -101,70 +134,129 @@ class _CrewHomePageState extends State<CrewHomePage> {
     );
   }
 
-  void listenForCrews(_current_page, _perPage, _searchKeyword) async {
-    logger.d(
-        'listenForCrews : ${_current_page}, ${_perPage}, ${_searchKeyword}');
+  void listenForCrews(_searchKeyword) async {
 
-    if (_moreProductsAvailable == false) {
-      print("No more products!!!");
-      return;
-    }
+    print('_searchKeyword : ${_searchKeyword}');
 
-    if (_gettingMoreProducts == true) {
-      return;
-    }
+    if(_lastCrew == null) {
 
-    final Stream<Crew> stream =
-        await getCrews(_current_page, _perPage, _searchKeyword);
+      print("First Crew List CALL");
 
-    print('stream : ${stream}');
+      final Stream<Crew> stream =
+      await getCrews( _searchKeyword, _perPage, null, null);
 
-    List<Crew> _temCrews = <Crew>[];
+      List<Crew> _tmpCrews = <Crew>[];
 
-    stream.listen((Crew crew) {
-      print("DataReceived: ${crew}");
-      _temCrews.add(crew);
-    }, onDone: () {
-      _crews.addAll(_temCrews);
+      stream.listen((Crew crew) {
+        print("DataReceived: ${crew}");
+        _tmpCrews.add(crew);
+      }, onDone: () {
 
-      print('_temCrews : ${_temCrews}');
-      print('_temCrews.length!! : ${_temCrews.length}');
-      print('_crews.length!! : ${_crews.length}');
+        _crews.addAll(_tmpCrews);
+        _lastCrew = _tmpCrews[_tmpCrews.length-1];
 
-      print(' _perPage!! : ${_perPage}');
-      print('_moreProductsAvailable : ${_moreProductsAvailable}');
+        print('_lastCrew.length : _lastCrew : ${_lastCrew.id} / ${_lastCrew.name} ');
 
-      if (_temCrews.length < _perPage) {
+        print('_temCrews : ${_tmpCrews}');
+        print('_temCrews.length!! : ${_tmpCrews.length}');
+        print('_crews.length!! : ${_crews.length}');
+
+        print(' _perPage!! : ${_perPage}');
+        print('_moreCrewsAvailable : ${_moreCrewsAvailable}');
+
+        if (_tmpCrews.length < _perPage) {
+          setState(() {
+            print('_crews.length : ${_tmpCrews.length}');
+
+            _moreCrewsAvailable = false;
+          });
+        }
+
         setState(() {
-          print('_crews.length : ${_temCrews.length}');
-
-          print('_current_page * _perPage : ${_perPage}');
-
-          _moreProductsAvailable = false;
+          _loadingCrews = false;
         });
+
+      }, onError: (error) {
+        print("error : ${error}");
+      });
+
+    }else{
+
+      if (_moreCrewsAvailable == false) {
+        print("No more products!!!");
+        return;
       }
 
-      setState(() {});
-    }, onError: (error) {
-      print("error : ${error}");
-    });
+      if (_gettingMoreCrews == true) {
+        return;
+      }
 
-    setState(() {
-      _loadingProducts = false;
-    });
+      final Stream<Crew> stream =
+      await getCrews( _searchKeyword, _perPage, 'id', _lastCrew.id);
 
-    _gettingMoreProducts = false;
+      List<Crew> _tmpCrews = <Crew>[];
+
+      stream.listen((Crew crew) {
+        print("DataReceived: ${crew}");
+        _tmpCrews.add(crew);
+      }, onDone: () {
+        _crews.addAll(_tmpCrews);
+        _lastCrew = _tmpCrews[_tmpCrews.length-1];
+
+        print('_lastCrew.length : _lastCrew : ${_lastCrew.id} / ${_lastCrew.name} ');
+
+        print('_temCrews : ${_tmpCrews}');
+        print('_temCrews.length!! : ${_tmpCrews.length}');
+        print('_crews.length!! : ${_crews.length}');
+
+        print(' _perPage!! : ${_perPage}');
+        print('_moreCrewsAvailable : ${_moreCrewsAvailable}');
+
+        if (_tmpCrews.length < _perPage) {
+          _moreCrewsAvailable = false;
+        }
+
+        setState(() {});
+      }, onError: (error) {
+        print("error : ${error}");
+      });
+
+      _gettingMoreCrews = false;
+
+    }
+
+
   }
 
   void _handleSubmitted(String text) {
     _searchKeyword = text;
 
-    _current_page = 1;
     _crews.clear();
+    _lastCrew = null;
+
     logger.d('_handleSubmitted : ${text}');
 
-    listenForCrews(_current_page, _perPage, _searchKeyword);
+    listenForCrews(_searchKeyword);
+
+//    setState(() {
+//
+//    });
 
 //    _textEditingController.clear();
+  }
+
+  void _textfieldClear() {
+
+    _gettingMoreCrews = false;
+    _moreCrewsAvailable = true;
+
+    _searchKeyword = '';
+    _textEditingController.clear();
+
+    _lastCrew = null;
+    _crews.clear();
+
+    listenForCrews('');
+
   }
 }

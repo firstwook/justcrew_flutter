@@ -24,9 +24,9 @@ class _SessionListPageState extends State<SessionListPage> {
 
   ScrollController _scrollController = ScrollController();
 
-  bool _loadingProducts = true;
-  bool _gettingMoreProducts = false;
-  bool _moreProductsAvailable = true;
+  bool _loadingSessions = true;
+  bool _gettingMoreSessions = false;
+  bool _moreSessionsAvailable = true;
 
   Session _lastSession;
 
@@ -62,7 +62,7 @@ class _SessionListPageState extends State<SessionListPage> {
 //    print("crewId ; ${widget.crewId} / isUpcomming : ${widget.isUpcoming}");
 
     return Scaffold(
-      body: _loadingProducts == true
+      body: _loadingSessions == true
           ? Container(
         child: Center(
           child: Text("Loading...."),
@@ -111,10 +111,10 @@ class _SessionListPageState extends State<SessionListPage> {
 
         if (_tmpSessions.length < _perPage) {
           print('First _tmpSessions.length : ${_tmpSessions.length}');
-          _moreProductsAvailable = false;
+          _moreSessionsAvailable = false;
         }
         setState(() {
-          _loadingProducts = false;
+          _loadingSessions = false;
         });
       }, onError: (error) {
         print("error : ${error}");
@@ -124,12 +124,12 @@ class _SessionListPageState extends State<SessionListPage> {
 
       print("More Session List CALL");
 
-      if (_moreProductsAvailable == false) {
+      if (_moreSessionsAvailable == false) {
         print("No more products!!!");
         return;
       }
 
-      if (_gettingMoreProducts == true) {
+      if (_gettingMoreSessions == true) {
         return;
       }
 
@@ -146,7 +146,7 @@ class _SessionListPageState extends State<SessionListPage> {
         _lastSession = _tmpSessions[_tmpSessions.length-1];
 
         if (_tmpSessions.length < _perPage) {
-          _moreProductsAvailable = false;
+          _moreSessionsAvailable = false;
         }
         setState(() {});
 
@@ -155,7 +155,7 @@ class _SessionListPageState extends State<SessionListPage> {
       });
 
 
-      _gettingMoreProducts = false;
+      _gettingMoreSessions = false;
 
     }
   }
