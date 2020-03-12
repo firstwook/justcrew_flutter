@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:justcrew_flutter/models/session.dart';
-import 'package:justcrew_flutter/ui/pages/crew/crew_detail_page.dart';
+import 'package:justcrew_flutter/ui/pages/crew/session_detail_page.dart';
 
 class SessionTile extends StatelessWidget {
   final Session _session;
@@ -58,10 +58,10 @@ class SessionTile extends StatelessWidget {
         onTap: () {
           print('aaaaaaaaaaaaaa');
 
-//          Navigator.push(
-//              context, new MaterialPageRoute(builder: (context) =>
-//              CrewDetailPage(_crew))
-//          );
+          Navigator.push(
+              context, new MaterialPageRoute(builder: (context) =>
+              SessionDetailPage(_session))
+          );
 
         },
       ),

@@ -82,7 +82,7 @@ class Choice {
 }
 
 const List<Choice> choices = <Choice>[
-  Choice(title: 'UPCOMMING', icon: Icons.directions_run),
+  Choice(title: 'UPCOMING', icon: Icons.directions_run),
   Choice(title: 'LAST', icon: Icons.directions_run),
 ];
 

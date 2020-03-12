@@ -37,7 +37,7 @@ class _CrewDetailPageState extends State<CrewDetailPage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.orange,
         onPressed: () {
-          print('aaaa ${widget.crew.id}');
+          _getJoinButton();
         },
         child: Text('JOIN'),
       ),
@@ -100,9 +100,7 @@ class _CrewDetailPageState extends State<CrewDetailPage> {
 
   _getJoinButton() {
 
-    return Container(
-
-    );
+    print('aaaa ${widget.crew.id}');
 
   }
 }
