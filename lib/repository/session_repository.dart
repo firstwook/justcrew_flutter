@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import 'package:justcrew_flutter/models/session-member.dart';
+import 'package:justcrew_flutter/models/session_member.dart';
 import 'package:query_params/query_params.dart';
 import 'dart:convert';
 import '../models/crew.dart';

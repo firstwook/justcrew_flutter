@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
 import 'package:justcrew_flutter/models/crew.dart';
-import 'package:justcrew_flutter/models/session-member.dart';
+import 'package:justcrew_flutter/models/session_member.dart';
 import 'package:justcrew_flutter/models/session.dart';
 import 'package:justcrew_flutter/repository/session_repository.dart';
 import 'package:justcrew_flutter/ui/pages/crew/crew_session_page.dart';
+import 'package:justcrew_flutter/widgets/session_member_tile.dart';
 
 class SessionDetailPage extends StatefulWidget {
   final Session session;
@@ -163,20 +164,7 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
                   child: ListView.builder(
                     itemCount: _sessionMembers.length,
                     itemBuilder: (context, index) =>
-                        Card(
-                          elevation: 0.5,
-                          margin: new EdgeInsets.symmetric(
-                            horizontal: 20.0, vertical: 6.0
-                          ),
-                          child: ListTile(
-                            contentPadding: EdgeInsets.symmetric(
-                              horizontal: 10.0, vertical: 10.0
-                            ),
-                            leading: Icon(Icons.account_circle),
-                            title: Text(_sessionMembers[index].memberName),
-                            trailing: Icon(Icons.arrow_forward),
-                          ),
-                        )
+                        SessionMemberTile(_sessionMembers[index]),
                   ),
                 )
 //                Container(

@@ -8,6 +8,7 @@ class SessionMember {
   final String registratedDate;
   final int isAttended;
   final String sessionOptionValue;
+  final String profileImage;
 
   SessionMember.fromJSON(Map<String, dynamic> jsonMap)
       : id = jsonMap['id'],
@@ -18,5 +19,6 @@ class SessionMember {
         crewRoleId = jsonMap['crewRoleId'],
         registratedDate = jsonMap['registratedDate'],
         isAttended = jsonMap['isAttended'],
-        sessionOptionValue = jsonMap['sessionOptionValue'];
+        sessionOptionValue = jsonMap['sessionOptionValue'],
+        profileImage = jsonMap['profileImage'];
 }
