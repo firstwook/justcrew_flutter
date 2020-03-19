@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:justcrew_flutter/models/session.dart';
+import 'package:justcrew_flutter/models/session_detail.dart';
 import 'package:justcrew_flutter/ui/pages/crew/session_detail_page.dart';
 
 class SessionTile extends StatelessWidget {

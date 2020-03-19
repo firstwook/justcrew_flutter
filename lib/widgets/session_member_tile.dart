@@ -63,8 +63,8 @@ class _SessionMemberTileState extends State<SessionMemberTile> {
               setState(() {
                 _isAttended = !_isAttended;
                 (_isAttended)
-                    ? Toast.show("출석 처리되었습니다.", context)
-                    : Toast.show("출석 해제 처리되었습니다.", context);
+                    ? Toast.show("출석 처리되었습니다.", context, duration: Toast.LENGTH_LONG)
+                    : Toast.show("출석 해제 처리되었습니다.", context, duration: Toast.LENGTH_LONG);
               });
             },
           ),

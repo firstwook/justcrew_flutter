@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:justcrew_flutter/models/session.dart';
+import 'package:justcrew_flutter/models/session_detail.dart';
 import 'package:justcrew_flutter/repository/crew_repository.dart';
 import 'package:justcrew_flutter/widgets/crew_tile.dart';
 import 'package:justcrew_flutter/widgets/session_tile.dart';

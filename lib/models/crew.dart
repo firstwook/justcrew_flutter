@@ -8,6 +8,9 @@ class Crew {
   final String description;
   final String birthday;
   final int sportsId;
+  final int sessionCount;
+  final int noticeCount;
+  final int memberCount;
 
   Crew.fromJSON(Map<String, dynamic> jsonMap) :
         id = jsonMap['id'],
@@ -18,5 +21,8 @@ class Crew {
         bgImageUrl = jsonMap['bgImageUrl'],
         description = jsonMap['description'],
         birthday = jsonMap['birthday'],
-        sportsId = jsonMap['sportsId'];
+        sportsId = jsonMap['sportsId'],
+        sessionCount = jsonMap['sessionCount'],
+        noticeCount = jsonMap['noticeCount'],
+        memberCount = jsonMap['memberCount'];
 }

@@ -2,14 +2,12 @@ import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
-import 'package:justcrew_flutter/models/crew.dart';
 import 'package:justcrew_flutter/models/session_member.dart';
-import 'package:justcrew_flutter/models/session.dart';
+import 'package:justcrew_flutter/models/session_detail.dart';
 import 'package:justcrew_flutter/repository/session_repository.dart';
-import 'package:justcrew_flutter/ui/pages/crew/crew_session_page.dart';
 import 'package:justcrew_flutter/widgets/session_member_tile.dart';
+import 'package:toast/toast.dart';
 
 class SessionDetailPage extends StatefulWidget {
   final Session session;
@@ -151,7 +149,7 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
                       new EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
                   child: Center(
                       child: Text(
-                        '참가자',
+                        '참가자 (${_sessionMembers.length} / ${widget.session.maximumOccupancy})',
                         style:
                         TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                       )),
@@ -227,6 +225,7 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
   _getJoinButton() {
 
     print('aaaa ${widget.session.id}');
+    Toast.show('참가하기가 완료되었습니다.', context, duration: Toast.LENGTH_LONG);
   }
 }
 

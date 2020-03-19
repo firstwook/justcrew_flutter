@@ -217,7 +217,7 @@ class CrewSummary extends StatelessWidget {
                       child: Column(
                         children: <Widget>[
                           Text(
-                            random.nextInt(10000).toString(),
+                            "${crew.sessionCount}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 22,
@@ -238,7 +238,7 @@ class CrewSummary extends StatelessWidget {
                     Column(
                       children: <Widget>[
                         Text(
-                          random.nextInt(10000).toString(),
+                          "${crew.memberCount}",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 22,
@@ -256,7 +256,7 @@ class CrewSummary extends StatelessWidget {
                     Column(
                       children: <Widget>[
                         Text(
-                          random.nextInt(10000).toString(),
+                          "${crew.noticeCount}",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 22,

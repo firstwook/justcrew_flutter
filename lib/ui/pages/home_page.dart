@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:justcrew_flutter/firebase_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'chat/chat.dart';
+import 'message/message.dart';
 import 'crew/crew_main_page.dart';
 import 'event/event.dart';
 import 'dashboard/dashboard.dart';
@@ -69,7 +69,7 @@ class HomePageState extends State<HomePage> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.chat),
-              title: Text('chat'),
+              title: Text('message'),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
